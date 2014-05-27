@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_DEMO</name>
+    <author>Yireo</author>
+    <creationDate>April 2013</creationDate>
+    <copyright>Copyright (C) 2013 Yireo.com. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <authorEmail>info@yireo.com</authorEmail>
+    <authorUrl>www.yireo.com</authorUrl>
+    <version>0.0.8</version>
+    <description>PLG_SYSTEM_DEMO_DESC</description>
+
+    <files>
+        <filename plugin="demo">demo.php</filename>
+        <filename>index.html</filename>
+    </files>
+
+    <media destination="plg_demo">
+        <folder>css</folder>
+    </media>
+
+    <languages>
+        <language tag="en-GB">en-GB.plg_system_demo.ini</language>
+        <language tag="en-GB">en-GB.plg_system_demo.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="show_message" type="list" default="1" label="PLG_SYSTEM_DEMO_FIELD_SHOW_MESSAGE" description="PLG_SYSTEM_DEMO_FIELD_SHOW_MESSAGE_DESC">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="message_text" type="textarea" rows="3" cols="60" default="This is a demo site. Changes to this site will be temporarily only." label="PLG_SYSTEM_DEMO_FIELD_MESSAGE_TEXT" description="PLG_SYSTEM_DEMO_FIELD_MESSAGE_TEXT_DESC" />
+                <field name="backend" type="list" default="1" label="PLG_SYSTEM_DEMO_FIELD_BACKEND" description="PLG_SYSTEM_DEMO_FIELD_BACKEND_DESC">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="frontend" type="list" default="1" label="PLG_SYSTEM_DEMO_FIELD_FRONTEND" description="PLG_SYSTEM_DEMO_FIELD_FRONTEND_DESC">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+
+    <updateservers>
+        <server type="extension" priority="1" name="plg_system_demo">http://www.yireo.com/updates/plg_system_demo.xml</server>
+    </updateservers>
+
+</extension>
