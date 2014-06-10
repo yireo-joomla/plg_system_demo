@@ -3,7 +3,7 @@
  * Joomla! System plugin for Demo Sites
  *
  * @author Yireo (info@yireo.com)
- * @copyright Copyright 2012
+ * @copyright Copyright 2014
  * @license GNU Public License
  * @link http://www.yireo.com
  */
@@ -90,7 +90,7 @@ class plgSystemDemo extends JPlugin
 
         // Check for overrides
         $template = JFactory::getApplication()->getTemplate();
-        if(file_exists(JPATH_SITE.DS.'templates'.DS.$template.DS.'html'.DS.'plg_demo'.DS.'css'.DS.$file)) {
+        if(file_exists(JPATH_SITE.'/templates/'.$template.'/html/plg_demo/css/'.$file)) {
             $folder = 'templates/'.$template.'/html/plg_demo/css/';
         }
 
@@ -106,14 +106,6 @@ class plgSystemDemo extends JPlugin
      */
     private function getParams()
     {
-        jimport('joomla.version');
-        $version = new JVersion();
-        if(version_compare($version->RELEASE, '1.5', 'eq')) {
-            $plugin = JPluginHelper::getPlugin('system', 'demo');
-            $params = new JParameter($plugin->params);
-            return $params;
-        } else {
-            return $this->params;
-        }
+        return $this->params;
     }
 }
