@@ -23,3 +23,7 @@ div#demobox div {
     line-height: 30px; 
     font-weight: bold; 
 }
+
+nav.navbar-fixed-top {
+    top: 30px;
+}
