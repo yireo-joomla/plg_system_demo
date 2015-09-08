@@ -42,11 +42,10 @@ class plgSystemDemo extends JPlugin
      */
     public function onAfterRender()
     {
-        // Determine whether to use in the frontend or backend
-        $application = JFactory::getApplication();
-        if($application->isSite() && $this->getParams()->get('frontend', 1) == 0) return false;
-        if($application->isAdmin() && $this->getParams()->get('backend', 1) == 0) return false;
-        if(JRequest::getCmd('tmpl') == 'component') return false;
+        // Determine whether or to allow this or not
+        if ($this->allowDemoNotice() == false) {
+            return false;
+        }
 
         // Add the message
         if($this->getParams()->get('show_message', 1) == 1) {
@@ -107,5 +106,32 @@ class plgSystemDemo extends JPlugin
     private function getParams()
     {
         return $this->params;
+    }
+
+    protected function allowDemoNotice()
+    {
+        $application = JFactory::getApplication();
+        if($application->isSite() && $this->getParams()->get('frontend', 1) == 0) {
+            return false;
+        }
+
+        if($application->isAdmin() && $this->getParams()->get('backend', 1) == 0) {
+            return false;
+        }
+
+		// Don't do anything if format=raw or tmpl=component
+		$format = $application->input->getCmd('format');
+		$tmpl = $application->input->getCmd('tmpl');
+
+		if ($format == 'raw' || $tmpl == 'component')
+		{
+			return false;
+		}
+
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            return false;
+        }
+
+        return true;
     }
 }
