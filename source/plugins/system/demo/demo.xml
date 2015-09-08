@@ -7,7 +7,7 @@
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>info@yireo.com</authorEmail>
     <authorUrl>www.yireo.com</authorUrl>
-    <version>0.0.9</version>
+    <version>0.0.10</version>
     <description>PLG_SYSTEM_DEMO_DESC</description>
 
     <files>
@@ -45,7 +45,7 @@
     </config>
 
     <updateservers>
-        <server type="extension" priority="1" name="plg_system_demo">http://www.yireo.com/updates/plg_system_demo.xml</server>
+        <server type="extension" priority="1" name="plg_system_demo">https://www.yireo.com/updates/plg_system_demo.xml</server>
     </updateservers>
 
 </extension>
