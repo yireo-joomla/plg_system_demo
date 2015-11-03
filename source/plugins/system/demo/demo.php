@@ -25,7 +25,7 @@ class PlgSystemDemo extends JPlugin
 	public function onAfterRoute()
 	{
 		header('X-Robots-Tag: demo, noindex, nofollow', true);
-		
+
 		$document = JFactory::getDocument();
 		$document->setMetaData('robots', 'demo,noindex,nofollow');
 	}
